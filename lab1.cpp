@@ -26,5 +26,5 @@ int main() {
 	cout << "6) Draw a rectangle filled" << endl;
 	cout << "7) Quit" << endl;
 
-    cout << "Have a nice day ^^" << endl;
+	cout << "Have a nice day ^^" << endl;
 }
