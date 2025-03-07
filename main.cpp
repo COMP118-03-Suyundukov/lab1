@@ -156,22 +156,6 @@ void drawVerticalLine(int length, char symbol) {
     }
 }
 
-// Draw a square
-void drawSquare(int length, char symbol) {
-    drawHorizontalLine(length, symbol);
-    for (int i = 0; i < length - 2; i++) {
-        cout << symbol << setw(length - 1) << symbol << "\n";
-    }
-    drawHorizontalLine(length, symbol);
-}
-
-// Draw a square filled
-void drawSquareFilled(int length, char symbol) {
-    for (int i = 0; i < length; i++) {
-        drawHorizontalLine(length, symbol);
-    }
-}
-
 // Draw a rectangle
 void drawRectangle(int height, int width, char symbol) {
     drawHorizontalLine(width, symbol);
@@ -186,4 +170,14 @@ void drawRectangleFilled(int height, int width, char symbol) {
     for (int i = 0; i < height; i++) {
         drawHorizontalLine(width, symbol);
     }
+}
+
+// Draw a square
+void drawSquare(int length, char symbol) {
+    drawRectangle(length, length, symbol);
+}
+
+// Draw a square filled
+void drawSquareFilled(int length, char symbol) {
+    drawRectangleFilled(length, length, symbol);
 }
