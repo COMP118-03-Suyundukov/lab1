@@ -31,26 +31,19 @@ int main() {
 		// Handle user's choice
 		if (choice == 1) {
 
-		}
-		else if (choice == 2) {
+		} else if (choice == 2) {
 
-		}
-		else if (choice == 3) {
+		} else if (choice == 3) {
 
-		}
-		else if (choice == 4) {
+		} else if (choice == 4) {
 
-		}
-		else if (choice == 5) {
+		} else if (choice == 5) {
 
-		}
-		else if (choice == 6) {
+		} else if (choice == 6) {
 
-		}
-		else if (choice == 7) {
+		} else if (choice == 7) {
 			// No code is needed here
-		}
-		else {
+		} else {
 			cerr << "Wrong choice, buddy!" << endl;
 		}
 	} while (choice != 7);
