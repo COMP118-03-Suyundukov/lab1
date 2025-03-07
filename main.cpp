@@ -63,24 +63,24 @@ int main() {
         } else if (choice == 7) {
             // No code is needed here
         } else {
-            cerr << "Wrong choice, buddy!" << endl;
+            cerr << "Wrong choice, buddy!" << "\n";
         }
     } while (choice != 7);
 
-    cout << "Have a nice day, pal, ^^" << endl;
+    cout << "Have a nice day, pal, ^^" << "\n";
 
     return 0;
 }
 
 // Show the menu options to the user
 void showMenu() {
-    cout << "1) Draw a horizontal line" << endl;
-    cout << "2) Draw a vertical line" << endl;
-    cout << "3) Draw a square" << endl;
-    cout << "4) Draw a square filled" << endl;
-    cout << "5) Draw a rectangle" << endl;
-    cout << "6) Draw a rectangle filled" << endl;
-    cout << "7) Quit" << endl;
+    cout << "1) Draw a horizontal line" << "\n";
+    cout << "2) Draw a vertical line" << "\n";
+    cout << "3) Draw a square" << "\n";
+    cout << "4) Draw a square filled" << "\n";
+    cout << "5) Draw a rectangle" << "\n";
+    cout << "6) Draw a rectangle filled" << "\n";
+    cout << "7) Quit" << "\n";
 }
 
 // Draw a horizontal line
@@ -88,12 +88,12 @@ void drawHorizontalLine(int length, char symbol) {
     for (int i = 0; i < length; i++) {
         cout << symbol;
     }
-    cout << endl;
+    cout << "\n";
 }
 
 // Draw a vertical line
 void drawVerticalLine(int length, char symbol) {
     for (int i = 0; i < length; i++) {
-        cout << symbol << endl;
+        cout << symbol << "\n";
     }
 }
