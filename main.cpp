@@ -102,7 +102,22 @@ int main() {
 
             drawRectangle(height, width, symbol);
         } else if (choice == 6) {
+            // Draw a rectangle filled
+            int height, width;
 
+            do {
+                cout << "Give me the height of the rectangle: ";
+                cin >> height;
+                cout << "Give me the width of the rectangle: ";
+                cin >> width;
+                if (height < 1 || width < 1) {
+                    cerr << "Rectangle's dimensions must be greater than 0" << "\n";
+                }
+            } while (height < 1 || width < 1);
+            cout << "Give me the symbol: ";
+            cin >> symbol;
+
+            drawRectangleFilled(height, width, symbol);
         } else if (choice == 7) {
             // No code is needed here
         } else {
@@ -164,4 +179,11 @@ void drawRectangle(int height, int width, char symbol) {
         cout << symbol << setw(width - 1) << symbol << "\n";
     }
     drawHorizontalLine(width, symbol);
+}
+
+// Draw a rectangle filled
+void drawRectangleFilled(int height, int width, char symbol) {
+    for (int i = 0; i < height; i++) {
+        drawHorizontalLine(width, symbol);
+    }
 }
