@@ -85,7 +85,22 @@ int main() {
 
             drawSquareFilled(length, symbol);
         } else if (choice == 5) {
+            // Draw a rectangle
+            int height, width;
 
+            do {
+                cout << "Give me the height of the rectangle: ";
+                cin >> height;
+                cout << "Give me the width of the rectangle: ";
+                cin >> width;
+                if (height < 1 || width < 1) {
+                    cerr << "Rectangle's dimensions must be greater than 0" << "\n";
+                }
+            } while (height < 1 || width < 1);
+            cout << "Give me the symbol: ";
+            cin >> symbol;
+
+            drawRectangle(height, width, symbol);
         } else if (choice == 6) {
 
         } else if (choice == 7) {
@@ -140,4 +155,13 @@ void drawSquareFilled(int length, char symbol) {
     for (int i = 0; i < length; i++) {
         drawHorizontalLine(length, symbol);
     }
+}
+
+// Draw a rectangle
+void drawRectangle(int height, int width, char symbol) {
+    drawHorizontalLine(width, symbol);
+    for (int i = 0; i < height - 2; i++) {
+        cout << symbol << setw(width - 1) << symbol << "\n";
+    }
+    drawHorizontalLine(width, symbol);
 }
