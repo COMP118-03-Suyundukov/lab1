@@ -1,4 +1,4 @@
-// lab1.cpp : This file contains small drawing program
+// main.cpp : This file contains small drawing program
 // Date: 28/02/2025
 // Author: Nurlan Suyundukov
 #include <iostream>
