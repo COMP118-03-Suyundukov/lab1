@@ -10,7 +10,7 @@ const char DEFAULT_SYMBOL = 'X';
 
 // Function prototype
 void drawHorizontalLine(int, char = DEFAULT_SYMBOL);
-void drawVerticalLine(int, char);
+void drawVerticalLine(int, char = DEFAULT_SYMBOL);
 void drawSquare(int, char);
 void drawSquareFilled(int, char);
 void drawRectangle(int, int, char);
@@ -42,7 +42,16 @@ int main() {
 
             drawHorizontalLine(length, symbol);
         } else if (choice == 2) {
+            // Draw a vertical line
+            char symbol;
+            int length;
 
+            cout << "Give me the length of the line: ";
+            cin >> length;
+            cout << "Give me the symbol: ";
+            cin >> symbol;
+
+            drawVerticalLine(length, symbol);
         } else if (choice == 3) {
 
         } else if (choice == 4) {
@@ -80,4 +89,11 @@ void drawHorizontalLine(int length, char symbol) {
         cout << symbol;
     }
     cout << endl;
+}
+
+// Draw a vertical line
+void drawVerticalLine(int length, char symbol) {
+    for (int i = 0; i < length; i++) {
+        cout << symbol << endl;
+    }
 }
