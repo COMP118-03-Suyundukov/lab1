@@ -13,9 +13,9 @@ const char DEFAULT_SYMBOL = 'X';
 void drawHorizontalLine(int, char = DEFAULT_SYMBOL);
 void drawVerticalLine(int, char = DEFAULT_SYMBOL);
 void drawSquare(int, char = DEFAULT_SYMBOL);
-void drawSquareFilled(int, char);
-void drawRectangle(int, int, char);
-void drawRectangleFilled(int, int, char);
+void drawSquareFilled(int, char = DEFAULT_SYMBOL);
+void drawRectangle(int, int, char = DEFAULT_SYMBOL);
+void drawRectangleFilled(int, int, char = DEFAULT_SYMBOL);
 void showMenu();
 
 // Driver of the application
