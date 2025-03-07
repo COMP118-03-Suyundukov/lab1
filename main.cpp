@@ -72,7 +72,18 @@ int main() {
 
             drawSquare(length, symbol);
         } else if (choice == 4) {
+            // Draw a square filled
+            do {
+                cout << "Give me the length of the square: ";
+                cin >> length;
+                if (length < 1) {
+                    cerr << "Length must be greater than 0" << "\n";
+                }
+            } while (length < 1);
+            cout << "Give me the symbol: ";
+            cin >> symbol;
 
+            drawSquareFilled(length, symbol);
         } else if (choice == 5) {
 
         } else if (choice == 6) {
@@ -122,4 +133,11 @@ void drawSquare(int length, char symbol) {
         cout << symbol << setw(length - 1) << symbol << "\n";
     }
     drawHorizontalLine(length, symbol);
+}
+
+// Draw a square filled
+void drawSquareFilled(int length, char symbol) {
+    for (int i = 0; i < length; i++) {
+        drawHorizontalLine(length, symbol);
+    }
 }
