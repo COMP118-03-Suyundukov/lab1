@@ -2,6 +2,7 @@
 // Date: 28/02/2025
 // Author: Nurlan Suyundukov
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ const char DEFAULT_SYMBOL = 'X';
 // Function prototype
 void drawHorizontalLine(int, char = DEFAULT_SYMBOL);
 void drawVerticalLine(int, char = DEFAULT_SYMBOL);
-void drawSquare(int, char);
+void drawSquare(int, char = DEFAULT_SYMBOL);
 void drawSquareFilled(int, char);
 void drawRectangle(int, int, char);
 void drawRectangleFilled(int, int, char);
@@ -19,7 +20,8 @@ void showMenu();
 
 // Driver of the application
 int main() {
-    int choice;
+    char symbol;
+    int choice, length;
 
     do {
         // Show menu
@@ -32,9 +34,6 @@ int main() {
         // Handle user's choice
         if (choice == 1) {
             // Draw a horizontal line
-            char symbol;
-            int length;
-
             do {
                 cout << "Give me the length of the line: ";
                 cin >> length;
@@ -48,9 +47,6 @@ int main() {
             drawHorizontalLine(length, symbol);
         } else if (choice == 2) {
             // Draw a vertical line
-            char symbol;
-            int length;
-
             do {
                 cout << "Give me the length of the line: ";
                 cin >> length;
@@ -63,7 +59,18 @@ int main() {
 
             drawVerticalLine(length, symbol);
         } else if (choice == 3) {
+            // Draw a square
+            do {
+                cout << "Give me the length of the square: ";
+                cin >> length;
+                if (length < 1) {
+                    cerr << "Length must be greater than 0" << "\n";
+                }
+            } while (length < 1);
+            cout << "Give me the symbol: ";
+            cin >> symbol;
 
+            drawSquare(length, symbol);
         } else if (choice == 4) {
 
         } else if (choice == 5) {
@@ -106,4 +113,13 @@ void drawVerticalLine(int length, char symbol) {
     for (int i = 0; i < length; i++) {
         cout << symbol << "\n";
     }
+}
+
+// Draw a square
+void drawSquare(int length, char symbol) {
+    drawHorizontalLine(length, symbol);
+    for (int i = 0; i < length - 2; i++) {
+        cout << symbol << setw(length - 1) << symbol << "\n";
+    }
+    drawHorizontalLine(length, symbol);
 }
