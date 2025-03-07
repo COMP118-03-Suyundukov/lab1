@@ -35,8 +35,13 @@ int main() {
             char symbol;
             int length;
 
-            cout << "Give me the length of the line: ";
-            cin >> length;
+            do {
+                cout << "Give me the length of the line: ";
+                cin >> length;
+                if (length < 1) {
+                  cerr << "Length must be greater than 0" << "\n";
+                }
+            } while (length < 1);
             cout << "Give me the symbol: ";
             cin >> symbol;
 
@@ -46,8 +51,13 @@ int main() {
             char symbol;
             int length;
 
-            cout << "Give me the length of the line: ";
-            cin >> length;
+            do {
+                cout << "Give me the length of the line: ";
+                cin >> length;
+                if (length < 1) {
+                    cerr << "Length must be greater than 0" << "\n";
+                }
+            } while (length < 1);
             cout << "Give me the symbol: ";
             cin >> symbol;
 
