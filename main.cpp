@@ -26,7 +26,7 @@ int main() {
     char symbol;
     int choice, length;
 
-	srand(static_cast<unsigned int>(time(NULL)));
+    srand(static_cast<unsigned int>(time(NULL)));
 
     do {
         // Show menu
@@ -124,11 +124,11 @@ int main() {
 
             drawRectangleFilled(height, width, symbol);
         } else if (choice == 7) {
-			// Draw random shapes
-			int numShapes;
-			cout << "Give me number of shapes: ";
-			cin >> numShapes;
-			drawShapes(numShapes);
+            // Draw random shapes
+            int numShapes;
+            cout << "Give me number of shapes: ";
+            cin >> numShapes;
+            drawShapes(numShapes);
         } else if (choice == 8) {
             // No code is needed here
         } else {
@@ -149,7 +149,7 @@ void showMenu() {
     cout << "4) Draw a square filled" << "\n";
     cout << "5) Draw a rectangle" << "\n";
     cout << "6) Draw a rectangle filled" << "\n";
-	cout << "7) Draw a random shapes" << "\n";
+    cout << "7) Draw a random shapes" << "\n";
     cout << "8) Quit" << "\n";
 }
 
@@ -198,10 +198,10 @@ void drawSquareFilled(int length, char symbol) {
 void drawShapes(int numShapes) {
     const int MIN_SHAPE_LENGTH = 5;
 
-	char shapeCharacter;
+    char shapeCharacter;
     int shapeLength, shapeType;
 
-	cout << "Draws " << numShapes << " random shapes" << "\n";
+    cout << "Draws " << numShapes << " random shapes" << "\n";
 
     for (int i = 0; i < numShapes; i++) {
         shapeType = rand() % 6 + 1;
@@ -232,6 +232,6 @@ void drawShapes(int numShapes) {
             break;
         }
 
-		cout << "\n";
+        cout << "\n";
     }
 }
