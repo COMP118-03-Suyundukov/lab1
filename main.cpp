@@ -16,6 +16,7 @@ void drawSquare(int, char = DEFAULT_SYMBOL);
 void drawSquareFilled(int, char = DEFAULT_SYMBOL);
 void drawRectangle(int, int, char = DEFAULT_SYMBOL);
 void drawRectangleFilled(int, int, char = DEFAULT_SYMBOL);
+void drawShapes(int);
 void showMenu();
 
 // Driver of the application
@@ -119,11 +120,17 @@ int main() {
 
             drawRectangleFilled(height, width, symbol);
         } else if (choice == 7) {
+			// Draw random shapes
+			int numShapes;
+			cout << "Give me number of shapes, mate: ";
+			cin >> numShapes;
+			drawShapes(numShapes);
+        } else if (choice == 8) {
             // No code is needed here
         } else {
             cerr << "Wrong choice, buddy!" << "\n";
         }
-    } while (choice != 7);
+    } while (choice != 8);
 
     cout << "Have a nice day, pal, ^^" << "\n";
 
@@ -138,7 +145,8 @@ void showMenu() {
     cout << "4) Draw a square filled" << "\n";
     cout << "5) Draw a rectangle" << "\n";
     cout << "6) Draw a rectangle filled" << "\n";
-    cout << "7) Quit" << "\n";
+	cout << "7) Draw a random shapes" << "\n";
+    cout << "8) Quit" << "\n";
 }
 
 // Draw a horizontal line
@@ -180,4 +188,9 @@ void drawSquare(int length, char symbol) {
 // Draw a square filled
 void drawSquareFilled(int length, char symbol) {
     drawRectangleFilled(length, length, symbol);
+}
+
+// Draws a number of random shapes, used for automatic testing
+void drawShapes(int numShapes) {
+	cout << "Draws " << numShapes << " random shapes" << "\n";
 }
