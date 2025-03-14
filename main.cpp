@@ -21,8 +21,12 @@ void showMenu();
 
 // Driver of the application
 int main() {
+    const int MAX_SHAPES = 10;
+
     char symbol;
     int choice, length;
+
+	srand(static_cast<unsigned int>(time(NULL)));
 
     do {
         // Show menu
@@ -122,7 +126,7 @@ int main() {
         } else if (choice == 7) {
 			// Draw random shapes
 			int numShapes;
-			cout << "Give me number of shapes, mate: ";
+			cout << "Give me number of shapes: ";
 			cin >> numShapes;
 			drawShapes(numShapes);
         } else if (choice == 8) {
@@ -192,5 +196,42 @@ void drawSquareFilled(int length, char symbol) {
 
 // Draws a number of random shapes, used for automatic testing
 void drawShapes(int numShapes) {
+    const int MIN_SHAPE_LENGTH = 5;
+
+	char shapeCharacter;
+    int shapeLength, shapeType;
+
 	cout << "Draws " << numShapes << " random shapes" << "\n";
+
+    for (int i = 0; i < numShapes; i++) {
+        shapeType = rand() % 6 + 1;
+        shapeLength = rand() % 16 + MIN_SHAPE_LENGTH;
+        shapeCharacter = 33 + (rand() % (126 - 33)); // Printable ASCII chars
+
+        switch (shapeType) {
+        case 1:
+            drawHorizontalLine(shapeLength, shapeCharacter);
+            break;
+        case 2:
+            drawVerticalLine(shapeLength, shapeCharacter);
+            break;
+        case 3:
+            drawSquare(shapeLength, shapeCharacter);
+            break;
+        case 4:
+            drawSquareFilled(shapeLength, shapeCharacter);
+            break;
+        case 5:
+            drawRectangle(shapeLength * 2, shapeLength, shapeCharacter);
+            break;
+        case 6:
+            drawRectangleFilled(shapeLength * 2, shapeLength, shapeCharacter);
+            break;
+        default:
+            cerr << "WARNING: should not happen!!!" << "\n";
+            break;
+        }
+
+		cout << "\n";
+    }
 }
