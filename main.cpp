@@ -26,6 +26,8 @@ void drawSquareFilled(const int, const char = DEFAULT_SYMBOL);
 void drawRectangle(const int, const int, const char = DEFAULT_SYMBOL);
 void drawRectangleFilled(const int, const int, const char = DEFAULT_SYMBOL);
 void drawShapes(const int);
+void drawArrays(const int[], const int[], const char[], const int);
+void initializeArrays(int[], int[], char[], const int);
 void showMenu();
 
 /**
@@ -33,10 +35,10 @@ void showMenu();
  * @return 0
  */
 int main() {
-    const int MAX_SHAPES = 10;
+    const int ARRAY_SIZE = 10, MAX_SHAPES = 10;
 
-    char symbol;
-    int choice, length;
+    char symbol, shapeSymbol[ARRAY_SIZE];
+    int choice, length, shapeType[ARRAY_SIZE], shapeLength[ARRAY_SIZE];
 
     srand(static_cast<unsigned int>(time(NULL)));
 
@@ -142,11 +144,15 @@ int main() {
             cin >> numShapes;
             drawShapes(numShapes);
         } else if (choice == 8) {
+            // Initialize arrays and draw shapes from them
+            initializeArrays(shapeType, shapeLength, shapeSymbol, ARRAY_SIZE);
+            drawArrays(shapeType, shapeLength, shapeSymbol, ARRAY_SIZE);
+        } else if (choice == 9) {
             // No code is needed here
         } else {
             cerr << "Wrong choice, buddy!" << "\n";
         }
-    } while (choice != 8);
+    } while (choice != 9);
 
     cout << "Have a nice day, pal, ^^" << "\n";
 
@@ -164,7 +170,8 @@ void showMenu() {
     cout << "5) Draw a rectangle" << "\n";
     cout << "6) Draw a rectangle filled" << "\n";
     cout << "7) Draw a random shapes" << "\n";
-    cout << "8) Quit" << "\n";
+    cout << "8) Draw shapes from arrays" << "\n";
+    cout << "9) Quit" << "\n";
 }
 
 /**
@@ -291,6 +298,58 @@ void drawShapes(const int numShapes) {
             break;
         }
 
+        cout << "\n";
+    }
+}
+
+/**
+ * Fills array shapeType with values 1 - 6, shapeLength with values 5 - 20 , and shapeSymbol with values 33 - 126
+ * @param shapeType[] Array of shape types
+ * @param shapeLength[] Array of shape lengths
+ * @param shapeSymbol[] Array of shape symbols
+ * @param arraySize Size of the arrays
+ */
+void initializeArrays(int shapeType[], int shapeLength[], char shapeSymbol[], const int arraySize) {
+    for (int i = 0; i < arraySize; i++) {
+        shapeType[i] = rand() % 6 + 1;
+        shapeLength[i] = rand() % 16 + 5;
+        shapeSymbol[i] = 33 + (rand() % (126 - 33));
+    }
+}
+
+/**
+ * Draws shapes based on the values in the arrays
+ * @param shapeType[] Array of shape types
+ * @param shapeLength[] Array of shape lengths
+ * @param shapeSymbol[] Array of shape symbols
+ * @param arraySize Size of the arrays
+ */
+void drawArrays(const int shapeType[], const int shapeLength[], const char shapeSymbol[], const int arraySize) {
+    for (int i = 0; i < arraySize; i++) {
+        switch (shapeType[i]) {
+        case 1:
+            drawHorizontalLine(shapeLength[i], shapeSymbol[i]);
+            break;
+        case 2:
+            drawVerticalLine(shapeLength[i], shapeSymbol[i]);
+            break;
+        case 3:
+            drawSquare(shapeLength[i], shapeSymbol[i]);
+            break;
+        case 4:
+            drawSquareFilled(shapeLength[i], shapeSymbol[i]);
+            break;
+        case 5:
+            drawRectangle(shapeLength[i] * 2, shapeLength[i], shapeSymbol[i]);
+            break;
+        case 6:
+            drawRectangleFilled(shapeLength[i] * 2, shapeLength[i], shapeSymbol[i]);
+            break;
+        default:
+            cerr << "WARNING: should not happen!!!" << "\n";
+            assert(false);
+            break;
+        }
         cout << "\n";
     }
 }
