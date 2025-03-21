@@ -19,6 +19,7 @@ using namespace std;
 const char DEFAULT_SYMBOL = 'X';
 
 // Function prototype
+void drawArrays(const int[], const int[], const char[], const int);
 void drawHorizontalLine(const int, const char = DEFAULT_SYMBOL);
 void drawVerticalLine(const int, const char = DEFAULT_SYMBOL);
 void drawSquare(const int, const char = DEFAULT_SYMBOL);
@@ -26,7 +27,7 @@ void drawSquareFilled(const int, const char = DEFAULT_SYMBOL);
 void drawRectangle(const int, const int, const char = DEFAULT_SYMBOL);
 void drawRectangleFilled(const int, const int, const char = DEFAULT_SYMBOL);
 void drawShapes(const int);
-void drawArrays(const int[], const int[], const char[], const int);
+void drawShapeBasedOnType(const int, const int, const char);
 void initializeArrays(int[], int[], char[], const int);
 void showMenu();
 
@@ -273,31 +274,7 @@ void drawShapes(const int numShapes) {
         shapeLength = rand() % 16 + MIN_SHAPE_LENGTH;
         shapeCharacter = 33 + (rand() % (126 - 33)); // Printable ASCII chars
 
-        switch (shapeType) {
-        case 1:
-            drawHorizontalLine(shapeLength, shapeCharacter);
-            break;
-        case 2:
-            drawVerticalLine(shapeLength, shapeCharacter);
-            break;
-        case 3:
-            drawSquare(shapeLength, shapeCharacter);
-            break;
-        case 4:
-            drawSquareFilled(shapeLength, shapeCharacter);
-            break;
-        case 5:
-            drawRectangle(shapeLength * 2, shapeLength, shapeCharacter);
-            break;
-        case 6:
-            drawRectangleFilled(shapeLength * 2, shapeLength, shapeCharacter);
-            break;
-        default:
-            cerr << "WARNING: should not happen!!!" << "\n";
-            assert(false);
-            break;
-        }
-
+        drawShapeBasedOnType(shapeType, shapeLength, shapeCharacter);
         cout << "\n";
     }
 }
@@ -326,30 +303,40 @@ void initializeArrays(int shapeType[], int shapeLength[], char shapeSymbol[], co
  */
 void drawArrays(const int shapeType[], const int shapeLength[], const char shapeSymbol[], const int arraySize) {
     for (int i = 0; i < arraySize; i++) {
-        switch (shapeType[i]) {
-        case 1:
-            drawHorizontalLine(shapeLength[i], shapeSymbol[i]);
-            break;
-        case 2:
-            drawVerticalLine(shapeLength[i], shapeSymbol[i]);
-            break;
-        case 3:
-            drawSquare(shapeLength[i], shapeSymbol[i]);
-            break;
-        case 4:
-            drawSquareFilled(shapeLength[i], shapeSymbol[i]);
-            break;
-        case 5:
-            drawRectangle(shapeLength[i] * 2, shapeLength[i], shapeSymbol[i]);
-            break;
-        case 6:
-            drawRectangleFilled(shapeLength[i] * 2, shapeLength[i], shapeSymbol[i]);
-            break;
-        default:
-            cerr << "WARNING: should not happen!!!" << "\n";
-            assert(false);
-            break;
-        }
+        drawShapeBasedOnType(shapeType[i], shapeLength[i], shapeSymbol[i]);
         cout << "\n";
+    }
+}
+
+/**
+ * Draws a shape based on the type
+ * @param shapeType The type of the shape
+ * @param shapeLength The length of the shape
+ * @param shapeSymbol The symbol of the shape
+ */
+void drawShapeBasedOnType(const int shapeType, const int shapeLength, const char shapeSymbol) {
+    switch (shapeType) {
+    case 1:
+        drawHorizontalLine(shapeLength, shapeSymbol);
+        break;
+    case 2:
+        drawVerticalLine(shapeLength, shapeSymbol);
+        break;
+    case 3:
+        drawSquare(shapeLength, shapeSymbol);
+        break;
+    case 4:
+        drawSquareFilled(shapeLength, shapeSymbol);
+        break;
+    case 5:
+        drawRectangle(shapeLength * 2, shapeLength, shapeSymbol);
+        break;
+    case 6:
+        drawRectangleFilled(shapeLength * 2, shapeLength, shapeSymbol);
+        break;
+    default:
+        cerr << "WARNING: should not happen!!!" << "\n";
+        assert(false);
+        break;
     }
 }
