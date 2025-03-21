@@ -14,6 +14,9 @@
 using namespace std;
 
 // Global variables
+/**
+ * If not symbol is provided, this symbol will be used as default symbol
+ */
 const char DEFAULT_SYMBOL = 'X';
 
 // Function prototype
