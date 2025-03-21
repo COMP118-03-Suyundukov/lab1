@@ -17,6 +17,14 @@ using namespace std;
  * If not symbol is provided, this symbol will be used as default symbol
  */
 const char DEFAULT_SYMBOL = 'X';
+/**
+ * Maximum length of the shape
+ */
+const int MAX_SHAPE_LENGTH = 20;
+/**
+ * Minimum length of the shape
+ */
+const int MIN_SHAPE_LENGTH = 5;
 
 // Function prototype
 void drawArrays(const int*, const int*, const char*, const int);
@@ -262,8 +270,6 @@ void drawSquareFilled(const int length, const char symbol) {
 void drawShapes(const int numShapes) {
     assert(numShapes > 0);
 
-    const int MIN_SHAPE_LENGTH = 5;
-
     char shapeCharacter;
     int shapeLength, shapeType;
 
@@ -271,7 +277,7 @@ void drawShapes(const int numShapes) {
 
     for (int i = 0; i < numShapes; i++) {
         shapeType = rand() % 6 + 1;
-        shapeLength = rand() % 16 + MIN_SHAPE_LENGTH;
+        shapeLength = MIN_SHAPE_LENGTH + rand() % (MAX_SHAPE_LENGTH - MIN_SHAPE_LENGTH + 1);
         shapeCharacter = 33 + (rand() % (126 - 33)); // Printable ASCII chars
 
         drawShapeBasedOnType(shapeType, shapeLength, shapeCharacter);
@@ -291,7 +297,7 @@ void initializeArrays(int* shapeType, int* shapeLength, char* shapeSymbol, const
 
     for (int i = 0; i < arraySize; i++) {
         shapeType[i] = rand() % 6 + 1;
-        shapeLength[i] = rand() % 16 + 5;
+        shapeLength[i] = MIN_SHAPE_LENGTH + rand() % (MAX_SHAPE_LENGTH - MIN_SHAPE_LENGTH + 1);
         shapeSymbol[i] = 33 + (rand() % (126 - 33));
     }
 }
