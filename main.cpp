@@ -19,7 +19,7 @@ using namespace std;
 const char DEFAULT_SYMBOL = 'X';
 
 // Function prototype
-void drawArrays(const int[], const int[], const char[], const int);
+void drawArrays(const int*, const int*, const char*, const int);
 void drawHorizontalLine(const int, const char = DEFAULT_SYMBOL);
 void drawVerticalLine(const int, const char = DEFAULT_SYMBOL);
 void drawSquare(const int, const char = DEFAULT_SYMBOL);
@@ -28,7 +28,7 @@ void drawRectangle(const int, const int, const char = DEFAULT_SYMBOL);
 void drawRectangleFilled(const int, const int, const char = DEFAULT_SYMBOL);
 void drawShapes(const int);
 void drawShapeBasedOnType(const int, const int, const char);
-void initializeArrays(int[], int[], char[], const int);
+void initializeArrays(int*, int*, char*, const int);
 void showMenu();
 
 /**
@@ -286,7 +286,7 @@ void drawShapes(const int numShapes) {
  * @param shapeSymbol[] Array of shape symbols
  * @param arraySize Size of the arrays
  */
-void initializeArrays(int shapeType[], int shapeLength[], char shapeSymbol[], const int arraySize) {
+void initializeArrays(int* shapeType, int* shapeLength, char* shapeSymbol, const int arraySize) {
     assert(arraySize > 0);
 
     for (int i = 0; i < arraySize; i++) {
@@ -303,7 +303,7 @@ void initializeArrays(int shapeType[], int shapeLength[], char shapeSymbol[], co
  * @param shapeSymbol[] Array of shape symbols
  * @param arraySize Size of the arrays
  */
-void drawArrays(const int shapeType[], const int shapeLength[], const char shapeSymbol[], const int arraySize) {
+void drawArrays(const int* shapeType, const int* shapeLength, const char* shapeSymbol, const int arraySize) {
     assert(arraySize > 0);
 
     for (int i = 0; i < arraySize; i++) {
