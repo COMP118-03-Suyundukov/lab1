@@ -171,9 +171,12 @@ void showMenu() {
  * @param symbol The symbol to be used for the line
  */
 void drawHorizontalLine(const int length, const char symbol) {
+    assert(length > 0);
+
     for (int i = 0; i < length; i++) {
         cout << symbol;
     }
+
     cout << "\n";
 }
 
@@ -183,6 +186,8 @@ void drawHorizontalLine(const int length, const char symbol) {
  * @param symbol The symbol to be used for the line
  */
 void drawVerticalLine(const int length, const char symbol) {
+    assert(length > 0);
+
     for (int i = 0; i < length; i++) {
         cout << symbol << "\n";
     }
@@ -195,6 +200,8 @@ void drawVerticalLine(const int length, const char symbol) {
  * @param symbol The symbol to be used for the rectangle
  */
 void drawRectangle(const int height, const int width, const char symbol) {
+    assert(height > 0 && width > 0);
+
     drawHorizontalLine(width, symbol);
     for (int i = 0; i < height - 2; i++) {
         cout << symbol << setw(width - 1) << symbol << "\n";
@@ -209,6 +216,8 @@ void drawRectangle(const int height, const int width, const char symbol) {
  * @param symbol The symbol to be used for the rectangle
  */
 void drawRectangleFilled(const int height, const int width, const char symbol) {
+    assert(height > 0 && width > 0);
+
     for (int i = 0; i < height; i++) {
         drawHorizontalLine(width, symbol);
     }
@@ -220,6 +229,8 @@ void drawRectangleFilled(const int height, const int width, const char symbol) {
  * @param symbol The symbol to be used for the square
  */
 void drawSquare(const int length, const char symbol) {
+    assert(length > 0);
+
     drawRectangle(length, length, symbol);
 }
 
@@ -229,6 +240,8 @@ void drawSquare(const int length, const char symbol) {
  * @param symbol The symbol to be used for the square
  */
 void drawSquareFilled(const int length, const char symbol) {
+    assert(length > 0);
+
     drawRectangleFilled(length, length, symbol);
 }
 
