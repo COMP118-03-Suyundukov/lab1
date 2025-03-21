@@ -298,7 +298,7 @@ void initializeArrays(int* shapeType, int* shapeLength, char* shapeSymbol, const
     for (int i = 0; i < arraySize; i++) {
         shapeType[i] = rand() % 6 + 1;
         shapeLength[i] = MIN_SHAPE_LENGTH + rand() % (MAX_SHAPE_LENGTH - MIN_SHAPE_LENGTH + 1);
-        shapeSymbol[i] = 33 + (rand() % (126 - 33));
+        shapeSymbol[i] = 33 + (rand() % (126 - 33)); // Printable ASCII chars
     }
 }
 
@@ -311,6 +311,8 @@ void initializeArrays(int* shapeType, int* shapeLength, char* shapeSymbol, const
  */
 void drawArrays(const int* shapeType, const int* shapeLength, const char* shapeSymbol, const int arraySize) {
     assert(arraySize > 0);
+
+    cout << "Draws " << arraySize << " shapes from array" << "\n";
 
     for (int i = 0; i < arraySize; i++) {
         drawShapeBasedOnType(shapeType[i], shapeLength[i], shapeSymbol[i]);
