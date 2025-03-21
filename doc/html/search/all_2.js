@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]]
+  ['lab1_0',['lab1',['../md__c___users__student_source_repos__c_o_m_p118_03__suyundukov_lab1__r_e_a_d_m_e.html',1,'']]]
 ];
