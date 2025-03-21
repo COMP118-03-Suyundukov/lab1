@@ -1,6 +1,12 @@
-// main.cpp : This file contains small drawing program
-// Date: 28/02/2025
-// Author: Nurlan Suyundukov
+/**
+ * \file main.cpp
+ * \brief This file contains small drawing program
+ * \details This program draw shorizontal and vertical lines, squares, rectangles
+ * \author Nurlan Suyundukov
+ * \version 0.0.1
+ * \date 28/02/2025
+ * \copyright University of Nicosia
+ */
 #include <cassert>
 #include <iostream>
 #include <iomanip>
@@ -20,7 +26,10 @@ void drawRectangleFilled(const int, const int, const char = DEFAULT_SYMBOL);
 void drawShapes(const int);
 void showMenu();
 
-// Driver of the application
+/**
+ * Driver of the application
+ * @return 0
+ */
 int main() {
     const int MAX_SHAPES = 10;
 
@@ -142,7 +151,9 @@ int main() {
     return 0;
 }
 
-// Show the menu options to the user
+/**
+ * Shows the menu options to the user
+ */
 void showMenu() {
     cout << "1) Draw a horizontal line" << "\n";
     cout << "2) Draw a vertical line" << "\n";
@@ -154,7 +165,11 @@ void showMenu() {
     cout << "8) Quit" << "\n";
 }
 
-// Draw a horizontal line
+/**
+ * Draws a horizontal line, given a length and a symbol
+ * @param length The length of the line
+ * @param symbol The symbol to be used for the line
+ */
 void drawHorizontalLine(const int length, const char symbol) {
     for (int i = 0; i < length; i++) {
         cout << symbol;
@@ -162,14 +177,23 @@ void drawHorizontalLine(const int length, const char symbol) {
     cout << "\n";
 }
 
-// Draw a vertical line
+/**
+ * Draws a vertical line, given a length and a symbol
+ * @param length The length of the line
+ * @param symbol The symbol to be used for the line
+ */
 void drawVerticalLine(const int length, const char symbol) {
     for (int i = 0; i < length; i++) {
         cout << symbol << "\n";
     }
 }
 
-// Draw a rectangle
+/**
+ * Draws a rectangle, given a height, width and a symbol
+ * @param height The height of the rectangle
+ * @param width The width of the rectangle
+ * @param symbol The symbol to be used for the rectangle
+ */
 void drawRectangle(const int height, const int width, const char symbol) {
     drawHorizontalLine(width, symbol);
     for (int i = 0; i < height - 2; i++) {
@@ -178,26 +202,42 @@ void drawRectangle(const int height, const int width, const char symbol) {
     drawHorizontalLine(width, symbol);
 }
 
-// Draw a rectangle filled
+/**
+ * Draws a filled rectangle, given a height, width and a symbol
+ * @param height The height of the rectangle
+ * @param width The width of the rectangle
+ * @param symbol The symbol to be used for the rectangle
+ */
 void drawRectangleFilled(const int height, const int width, const char symbol) {
     for (int i = 0; i < height; i++) {
         drawHorizontalLine(width, symbol);
     }
 }
 
-// Draw a square
+/**
+ * Draws a square, given a length and a symbol
+ * @param length The length of the square
+ * @param symbol The symbol to be used for the square
+ */
 void drawSquare(const int length, const char symbol) {
     drawRectangle(length, length, symbol);
 }
 
-// Draw a square filled
+/**
+ * Draws a filled square, given a length and a symbol
+ * @param length The length of the square
+ * @param symbol The symbol to be used for the square
+ */
 void drawSquareFilled(const int length, const char symbol) {
     drawRectangleFilled(length, length, symbol);
 }
 
-// Draws a number of random shapes, used for automatic testing
+/**
+ * Draws a number of random shapes
+ * @param numShapes The number of shapes to draw
+ */
 void drawShapes(const int numShapes) {
-	assert(numShapes > 0);
+    assert(numShapes > 0);
 
     const int MIN_SHAPE_LENGTH = 5;
 
@@ -232,7 +272,7 @@ void drawShapes(const int numShapes) {
             break;
         default:
             cerr << "WARNING: should not happen!!!" << "\n";
-			assert(false);
+            assert(false);
             break;
         }
 
