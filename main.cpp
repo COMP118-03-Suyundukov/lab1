@@ -287,6 +287,8 @@ void drawShapes(const int numShapes) {
  * @param arraySize Size of the arrays
  */
 void initializeArrays(int shapeType[], int shapeLength[], char shapeSymbol[], const int arraySize) {
+    assert(arraySize > 0);
+
     for (int i = 0; i < arraySize; i++) {
         shapeType[i] = rand() % 6 + 1;
         shapeLength[i] = rand() % 16 + 5;
@@ -302,6 +304,8 @@ void initializeArrays(int shapeType[], int shapeLength[], char shapeSymbol[], co
  * @param arraySize Size of the arrays
  */
 void drawArrays(const int shapeType[], const int shapeLength[], const char shapeSymbol[], const int arraySize) {
+    assert(arraySize > 0);
+
     for (int i = 0; i < arraySize; i++) {
         drawShapeBasedOnType(shapeType[i], shapeLength[i], shapeSymbol[i]);
         cout << "\n";
@@ -315,6 +319,9 @@ void drawArrays(const int shapeType[], const int shapeLength[], const char shape
  * @param shapeSymbol The symbol of the shape
  */
 void drawShapeBasedOnType(const int shapeType, const int shapeLength, const char shapeSymbol) {
+    assert(shapeType > 0 && shapeType < 7);
+    assert(shapeLength > 0);
+
     switch (shapeType) {
     case 1:
         drawHorizontalLine(shapeLength, shapeSymbol);
