@@ -1,5 +1,4 @@
-/**
- * \file main.cpp
+/** \file main.cpp
  * \brief This file contains small drawing program
  * \details This program draw shorizontal and vertical lines, squares, rectangles
  * \author Nurlan Suyundukov
