@@ -1,0 +1,16 @@
+# Visual Studio generated .editorconfig file with C++ settings.
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{c++,cc,cpp,cppm,cxx,h,h++,hh,hpp,hxx,inl,ipp,ixx,tlh,tli}]
+# Override default settings for C++ and C headers
+indent_style = space
+indent_size = 4
+max_line_length = 120
